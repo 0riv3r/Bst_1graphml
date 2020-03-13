@@ -28,6 +28,11 @@
     </dependency>
     <dependency>
         <groupId>org.graphwalker</groupId>
+        <artifactId>graphwalker-maven-plugin</artifactId>
+        <version>${graphwalker.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.graphwalker</groupId>
         <artifactId>graphwalker-java</artifactId>
         <version>${graphwalker.version}</version>
     </dependency>
@@ -37,6 +42,11 @@
         <artifactId>slf4j-simple</artifactId>
         <version>1.6.2</version>
         <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-classic</artifactId>
+        <version>1.1.2</version>
     </dependency>
     </dependencies>
 

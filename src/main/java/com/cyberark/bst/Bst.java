@@ -26,7 +26,7 @@ public class Bst<T extends Comparable<T>> {
         return nodeCount == 0;
     }
 
-    private Node insert(Node node, T value) {
+    private Node _insert(Node node, T value) {
         /** a leaf node, insert the value in this position. */
         if (node == null) {
             node = new Node(null, null, value);
@@ -35,13 +35,13 @@ public class Bst<T extends Comparable<T>> {
          * If the value is less than the current node's value, choose left.
          */
         else if (value.compareTo(node.element) < 0) {
-            node.left = insert(node.left, value);
+            node.left = _insert(node.left, value);
         }
         /**
          * If the value is greater than the current node's value, choose right.
          */
         else if (value.compareTo(node.element) > 0) {
-            node.right = insert(node.right, value);
+            node.right = _insert(node.right, value);
         }
         /** 
          * A new node is created, or
@@ -53,28 +53,28 @@ public class Bst<T extends Comparable<T>> {
     }
 
     public void add(T value) {
-        root = insert(root, value);
+        root = _insert(root, value);
         nodeCount++;
     }
 
-    private ArrayList<Integer> listNodes(Node node, ArrayList<Integer> lstNodes) {
+    private ArrayList<Integer> _listNodes(Node node, ArrayList<Integer> lstNodes) {
         if (node != null) {
             /** recursively call 'display' on the left sub-tree */
-            listNodes(node.left, lstNodes);
+            _listNodes(node.left, lstNodes);
             /** adds the value at the current node */
             lstNodes.add((Integer) node.element);
             /** recursively call 'display' on the right subtree. */
-            listNodes(node.right, lstNodes);
+            _listNodes(node.right, lstNodes);
         }
         return(lstNodes);
     }
 
     public ArrayList<Integer> listTreeNodes() {
         ArrayList<Integer> lstNodes = new ArrayList<Integer>();
-        return listNodes(root, lstNodes);
+        return _listNodes(root, lstNodes);
     }
 
-    private boolean contains(Node node, T value) {
+    private boolean _contains(Node node, T value) {
         /** if the value is not found */
         if (node == null)
             return false;
@@ -83,12 +83,12 @@ public class Bst<T extends Comparable<T>> {
             return true;
         }
         /** Otherwise, continue the search recursively */
-        return value.compareTo(node.element) < 0 ? contains(node.left, value) : contains(node.right, value);
+        return value.compareTo(node.element) < 0 ? _contains(node.left, value) : _contains(node.right, value);
 
     }
 
     public boolean containValue(T value) {
-        return contains(root, value);
+        return _contains(root, value);
     }
 
     /** return the smallest value (leftmost value) */
@@ -105,6 +105,31 @@ public class Bst<T extends Comparable<T>> {
             node = node.right;
         }
         return node.element;
+    }
+
+    private boolean _deleteLeaf(Node node, T value) {
+        /** if the value is not found */
+        if (node == null)
+            // not found
+            return false;
+        /** if the value is found */
+        if (value.compareTo(node.element) == 0) {
+            // is it a leaf? if yes, delete it
+            if(node.left == null && node.right == null){
+                node = null;
+                return true;
+            }
+            else{
+                // not a leaf
+                return false;
+            }
+        }
+        /** Otherwise, continue the search recursively */
+        return value.compareTo(node.element) < 0 ? _deleteLeaf(node.left, value) : _deleteLeaf(node.right, value);
+    }
+
+    public boolean deleteIfLeaf(T value) {
+        return _deleteLeaf(root, value);
     }
 
     public static void main(String[] args) {

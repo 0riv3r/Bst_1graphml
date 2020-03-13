@@ -1,23 +1,55 @@
 package com.cyberark.bst;
 
+import org.graphwalker.core.condition.EdgeCoverage;
+import org.graphwalker.core.condition.ReachedVertex;
+import org.graphwalker.core.condition.TimeDuration;
+import org.graphwalker.core.generator.AStarPath;
+import org.graphwalker.core.generator.RandomPath;
+import org.graphwalker.core.machine.ExecutionContext;
+import org.graphwalker.core.model.Edge;
+import org.graphwalker.java.test.TestBuilder;
+import org.graphwalker.java.test.TestExecutor;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
 import org.graphwalker.java.annotation.GraphWalker;
 
-//@GraphWalker(value = "random(edge_coverage(100))")
-@GraphWalker(value = "random(time_duration(1))")
+@GraphWalker(value = "random(edge_coverage(100))")
+//@GraphWalker(value = "random(time_duration(1))")
 
 public class TestModel extends PrgContext implements BstModel{
 
-    private static Bst<Integer> _bst = new Bst<Integer>();
-    private static ArrayList<Integer> _lstNodes = new ArrayList<Integer>();
-    private static ArrayList<Integer> _valArray = new ArrayList<Integer>(Arrays.asList(1, 4, 7, 12, 13, 28, 72));
-    private static ArrayList<Integer> _addedValsArray = new ArrayList<Integer>();
-    private static int _currentAddedValueIndex = 0;
-    private static int _currentSearchedValueIndex = 0;
-    private static boolean _bResult = false;
+    private static Bst<Integer> _bst;
+    private static ArrayList<Integer> _lstNodes;
+    private static ArrayList<Integer> _valArray;
+    private static ArrayList<Integer> _addedValsArray;
+    private static int _currentAddedValueIndex;
+    private static int _currentSearchedValueIndex;
+    private static boolean _bResult;
+
+    @Override
+    public void e_Init(){
+        // System.out.println("e_Init");
+        _bst = new Bst<Integer>();
+        _lstNodes = new ArrayList<Integer>();
+        _valArray = new ArrayList<Integer>(Arrays.asList(1, 4, 7, 12, 13, 28, 72));
+        _addedValsArray = new ArrayList<Integer>();
+        _currentAddedValueIndex = 0;
+        _currentSearchedValueIndex = 0;
+        _bResult = false;
+    }
+
+    @Override
+    public void v_Dispatch(){
+        // System.out.println("v_Dispatch");
+    }
+
+    @Override
+    public void e_Dispatch(){
+        // System.out.println("e_Dispatch");
+    }
 
     @Override
     public void e_AddNode() {
@@ -49,6 +81,21 @@ public class TestModel extends PrgContext implements BstModel{
         System.out.println("v_Found");
         boolean expected = true;
         assert _bResult == expected:" Value: " + _addedValsArray.get(_currentSearchedValueIndex) + " not faound!";
+    }
+
+    @Override
+    public void e_DeleteLeaf(){
+        System.out.println("e_DeleteLeaf");
+        _currentSearchedValueIndex = new Random().nextInt(_addedValsArray.size());
+        System.out.println( "Trying to delete a leaf with the value: " + _addedValsArray.get(_currentSearchedValueIndex) );
+        _bResult = _bst.deleteIfLeaf(_addedValsArray.get(_currentSearchedValueIndex));
+    }
+
+    @Override
+    public void v_LeafDeleted(){
+        System.out.println("v_LeafDeleted");
+        boolean expected = true;
+        assert _bResult == expected:" Value: " + _addedValsArray.get(_currentSearchedValueIndex) + " not faound or not a leaf!";
     }
 
     @Override
