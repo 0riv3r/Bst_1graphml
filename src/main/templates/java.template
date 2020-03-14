@@ -1,0 +1,24 @@
+HEADER<{{
+
+public class BstGwTest {
+
+  private static Bst<Integer> bst;
+  
+  public static void setUpFixture()
+  {
+    bst = new Bst<Integer>();
+  }
+}}>HEADER
+  public void {LABEL}()
+  {
+    System.out.println( "{LABEL}" );
+    // throw new RuntimeException( "{LABEL} is not implemented yet!" );
+  }
+FOOTER<{{
+  public static void main(String args[]) 
+  {
+    BstGwTest bstGwTest = new BstGwTest();
+    BstGwTest.setUpFixture();
+  }
+}
+}}>FOOTER

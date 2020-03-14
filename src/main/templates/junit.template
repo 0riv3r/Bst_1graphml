@@ -1,0 +1,15 @@
+HEADER<{{
+import static org.junit.Assert.assertEquals;
+import org.junit.Test;
+
+public class BstGwTest {
+}}>HEADER
+  @Test
+  public void {LABEL}_test()
+  {
+    System.out.println( "{LABEL}" );
+    // throw new RuntimeException( "{LABEL}_test is not implemented yet!" );
+  }
+FOOTER<{{
+}
+}}>FOOTER

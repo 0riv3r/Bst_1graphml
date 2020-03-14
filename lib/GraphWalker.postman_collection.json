@@ -1,0 +1,159 @@
+{
+	"info": {
+		"_postman_id": "34f88b79-903a-4f71-a327-46004f28f4ca",
+		"name": "GraphWalker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "hasNext",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8887/graphwalker/hasNext",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8887",
+					"path": [
+						"graphwalker",
+						"hasNext"
+					]
+				},
+				"description": "GET http://service-host:8887/graphwalker/hasNext\n\n{\"result\":\"ok\",\"hasNext\":\"true\"}\n\n\nThe Rest call hasNext queries the service if there are any more elements to fetch. If yes, then the fulfillment of the stop conditions has not yet been reached."
+			},
+			"response": []
+		},
+		{
+			"name": "getNext",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8887/graphwalker/getNext",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8887",
+					"path": [
+						"graphwalker",
+						"getNext"
+					]
+				},
+				"description": "GET http://service-host:8887/graphwalker/getNext\n\n{\"result\":\"ok\",\"currentElementName\":\"e_Init\"}\n\n\nThe Rest call getNext is used to get the next element from the path generation. GraphWalker will, given the path generator, calculate what the next element should be and step one step forward in the execution of the model. The element name is returned in the response."
+			},
+			"response": []
+		},
+		{
+			"name": "getData",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8887/graphwalker/getData",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8887",
+					"path": [
+						"graphwalker",
+						"getData"
+					]
+				},
+				"description": "GET http://localhost:8887/graphwalker/getData\n\n{\"result\":\"ok\",\"data\":{\"nodes\":\"0\"}}\n\n\nThe Rest call getData is used to ask GraphWalker for the current data values of the current model."
+			},
+			"response": []
+		},
+		{
+			"name": "setData",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8887/graphwalker/setData/nodes=2;",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8887",
+					"path": [
+						"graphwalker",
+						"setData",
+						"nodes=2;"
+					]
+				},
+				"description": "PUT http://localhost:8887/graphwalker/setData/nodes=2;\n\n{\"result\":\"ok\"}\n\n\nThe Rest call setData is used to set data in the current model."
+			},
+			"response": []
+		},
+		{
+			"name": "restart",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8887/graphwalker/restart",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8887",
+					"path": [
+						"graphwalker",
+						"restart"
+					]
+				},
+				"description": "PUT http://localhost:8887/graphwalker/restart\n\n{\"result\":\"ok\"}\n\n\n\nThe Rest call restart will reset currently loaded model(s) to their initial states."
+			},
+			"response": []
+		},
+		{
+			"name": "fail",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8887/graphwalker/fail/String%20to%20explain%20the%20failure",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8887",
+					"path": [
+						"graphwalker",
+						"fail",
+						"String%20to%20explain%20the%20failure"
+					]
+				},
+				"description": "PUT http://localhost:8887/graphwalker/fail/String%20to%20explain%20the%20failure\n\n{\"result\":\"nok\",\"error\":\"java.lang.Throwable: String to explain the failure\"}\n\n\n\nThe Rest call fail terminates the path generation of the test session.\n\n\n"
+			},
+			"response": []
+		},
+		{
+			"name": "getStatistics",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8887/graphwalker/getStatistics",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8887",
+					"path": [
+						"graphwalker",
+						"getStatistics"
+					]
+				},
+				"description": "GET http://localhost:8887/graphwalker/getStatistics\n\n{\"totalFailedNumberOfModels\":1,\"totalNotExecutedNumberOfModels\":0,\"totalNumberOfUnvisitedVertices\":0,\"verticesNotVisited\":[],\"totalNumberOfModels\":1,\"totalCompletedNumberOfModels\":0,\"totalNumberOfVisitedEdges\":9,\"totalIncompleteNumberOfModels\":0,\"edgesNotVisited\":[],\"result\":\"ok\",\"vertexCoverage\":100,\"totalNumberOfEdges\":9,\"totalNumberOfVisitedVertices\":5,\"edgeCoverage\":100,\"totalNumberOfVertices\":5,\"totalNumberOfUnvisitedEdges\":0}\n\nThe Rest call getStatistics will fetch the current statistics of the session.\n"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
