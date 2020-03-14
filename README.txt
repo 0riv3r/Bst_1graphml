@@ -65,36 +65,36 @@ download into lib/
 from: https://graphwalker.github.io/
 graphwalker-cli-4.2.0.jar
 
-cd /root/Bst_1graphml/lib
-wget https://github.com/GraphWalker/graphwalker-project/releases/download/4.2.0/graphwalker-cli-4.2.0.jar
+$ cd /root/Bst_1graphml/lib
+$ wget https://github.com/GraphWalker/graphwalker-project/releases/download/4.2.0/graphwalker-cli-4.2.0.jar
 
 *** Maven ***
 -------------
 
-mvn -version
+$ mvn -version
 Apache Maven 3.6.3
 ...
 
 clean all built/generated files
 -------------------------------
-mvn clean
+$ bmvn clean
 
 generate all the required files under target/
 ---------------------------------------------
-mvn graphwalker:generate-sources
+$ bmvn graphwalker:generate-sources
 
 run graphwalker online test via maven:
 -------------------------------------- 
-mvn graphwalker:test
+$ mvn graphwalker:test
 
 run unit-tests  under test/
 ---------------------------
-mvn test
+$ mvn test
 
 
 run all together (after setting up the java version!):
 ------------------------------------------------------
-mvn clean graphwalker:generate-sources graphwalker:test
+$ mvn clean graphwalker:generate-sources graphwalker:test
 
 
 ==================================================================================
@@ -121,12 +121,40 @@ Generate test code for the model
 java -jar lib/graphwalker-cli-4.2.0.jar source -i src/main/resources/com/cyberark/bst/BstModel.graphml src/main/templates/java.template > reports/generated/BstGwTest.java
 
 
-run online test as REST service
-===============================
+**************************************************************
+****     run GraphWalker online test as REST service      ****
+**************************************************************
 
-java -jar lib/graphwalker-cli-4.2.0.jar -d all online -s RESTFUL -m src/main/resources/com/cyberark/bst/BstModel.graphml "random(edge_coverage(100))"
+open firewall in port 8887
+--------------------------
+$ firewall-cmd --zone=public --add-port=8887/tcp --permanent
+$ sudo firewall-cmd --reload
+$ firewall-cmd --list-all
 
 
-Run the graphwalker test file from the commandline with enabling assertion:
-PS C:\workspace\bst\bin\test> java -ea BstGwTest
+# Launch the GraphWalker REST service and load the model:
+$ java -jar lib/graphwalker-cli-4.2.0.jar -d all online -s RESTFUL -m src/main/resources/com/cyberark/bst/BstModel.graphml "random(edge_coverage(100))"
+
+REST APIs:
+https://github.com/GraphWalker/graphwalker-project/wiki/Rest-API-overview
+
+Postman
+=======
+The Postman data is at lib/GraphWalker.postman_collection.json
+you can copy its content and paste in your Postman import.
+
+
+CLI HTTP client
+===============
+https://httpie.org/
+
+$ yum install httpie
+
+$ http GET  localhost:8887/graphwalker/hasNext
+
+
+
+# ignore these 2 lines:
+# Run the graphwalker test file from the commandline with enabling assertion:
+# PS C:\workspace\bst\bin\test> java -ea BstGwTest
 

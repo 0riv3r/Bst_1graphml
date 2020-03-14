@@ -11,10 +11,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8887/graphwalker/hasNext",
+					"raw": "http://10.0.123.91:8887/graphwalker/hasNext",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"10.0.123.91"
 					],
 					"port": "8887",
 					"path": [
@@ -32,10 +32,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8887/graphwalker/getNext",
+					"raw": "http://10.0.123.91:8887/graphwalker/getNext",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"10.0.123.91"
 					],
 					"port": "8887",
 					"path": [
@@ -53,10 +53,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8887/graphwalker/getData",
+					"raw": "http://10.0.123.91:8887/graphwalker/getData",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"10.0.123.91"
 					],
 					"port": "8887",
 					"path": [
@@ -64,7 +64,7 @@
 						"getData"
 					]
 				},
-				"description": "GET http://localhost:8887/graphwalker/getData\n\n{\"result\":\"ok\",\"data\":{\"nodes\":\"0\"}}\n\n\nThe Rest call getData is used to ask GraphWalker for the current data values of the current model."
+				"description": "GET http://10.0.123.91:8887/graphwalker/getData\n\n{\"result\":\"ok\",\"data\":{\"nodes\":\"0\"}}\n\n\nThe Rest call getData is used to ask GraphWalker for the current data values of the current model."
 			},
 			"response": []
 		},
@@ -74,10 +74,10 @@
 				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8887/graphwalker/setData/nodes=2;",
+					"raw": "http://10.0.123.91:8887/graphwalker/setData/nodes=2;",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"10.0.123.91"
 					],
 					"port": "8887",
 					"path": [
@@ -86,7 +86,7 @@
 						"nodes=2;"
 					]
 				},
-				"description": "PUT http://localhost:8887/graphwalker/setData/nodes=2;\n\n{\"result\":\"ok\"}\n\n\nThe Rest call setData is used to set data in the current model."
+				"description": "PUT http://10.0.123.91:8887/graphwalker/setData/nodes=2;\n\n{\"result\":\"ok\"}\n\n\nThe Rest call setData is used to set data in the current model."
 			},
 			"response": []
 		},
@@ -96,10 +96,10 @@
 				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8887/graphwalker/restart",
+					"raw": "http://10.0.123.91:8887/graphwalker/restart",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"10.0.123.91"
 					],
 					"port": "8887",
 					"path": [
@@ -107,7 +107,7 @@
 						"restart"
 					]
 				},
-				"description": "PUT http://localhost:8887/graphwalker/restart\n\n{\"result\":\"ok\"}\n\n\n\nThe Rest call restart will reset currently loaded model(s) to their initial states."
+				"description": "PUT http://10.0.123.91:8887/graphwalker/restart\n\n{\"result\":\"ok\"}\n\n\n\nThe Rest call restart will reset currently loaded model(s) to their initial states."
 			},
 			"response": []
 		},
@@ -117,10 +117,10 @@
 				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8887/graphwalker/fail/String%20to%20explain%20the%20failure",
+					"raw": "http://10.0.123.91:8887/graphwalker/fail/String%20to%20explain%20the%20failure",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"10.0.123.91"
 					],
 					"port": "8887",
 					"path": [
@@ -129,7 +129,7 @@
 						"String%20to%20explain%20the%20failure"
 					]
 				},
-				"description": "PUT http://localhost:8887/graphwalker/fail/String%20to%20explain%20the%20failure\n\n{\"result\":\"nok\",\"error\":\"java.lang.Throwable: String to explain the failure\"}\n\n\n\nThe Rest call fail terminates the path generation of the test session.\n\n\n"
+				"description": "PUT http://10.0.123.91:8887/graphwalker/fail/String%20to%20explain%20the%20failure\n\n{\"result\":\"nok\",\"error\":\"java.lang.Throwable: String to explain the failure\"}\n\n\n\nThe Rest call fail terminates the path generation of the test session.\n\n\n"
 			},
 			"response": []
 		},
@@ -139,10 +139,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8887/graphwalker/getStatistics",
+					"raw": "http://10.0.123.91:8887/graphwalker/getStatistics",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"10.0.123.91"
 					],
 					"port": "8887",
 					"path": [
@@ -150,7 +150,7 @@
 						"getStatistics"
 					]
 				},
-				"description": "GET http://localhost:8887/graphwalker/getStatistics\n\n{\"totalFailedNumberOfModels\":1,\"totalNotExecutedNumberOfModels\":0,\"totalNumberOfUnvisitedVertices\":0,\"verticesNotVisited\":[],\"totalNumberOfModels\":1,\"totalCompletedNumberOfModels\":0,\"totalNumberOfVisitedEdges\":9,\"totalIncompleteNumberOfModels\":0,\"edgesNotVisited\":[],\"result\":\"ok\",\"vertexCoverage\":100,\"totalNumberOfEdges\":9,\"totalNumberOfVisitedVertices\":5,\"edgeCoverage\":100,\"totalNumberOfVertices\":5,\"totalNumberOfUnvisitedEdges\":0}\n\nThe Rest call getStatistics will fetch the current statistics of the session.\n"
+				"description": "GET http://10.0.123.91:8887/graphwalker/getStatistics\n\n{\"totalFailedNumberOfModels\":1,\"totalNotExecutedNumberOfModels\":0,\"totalNumberOfUnvisitedVertices\":0,\"verticesNotVisited\":[],\"totalNumberOfModels\":1,\"totalCompletedNumberOfModels\":0,\"totalNumberOfVisitedEdges\":9,\"totalIncompleteNumberOfModels\":0,\"edgesNotVisited\":[],\"result\":\"ok\",\"vertexCoverage\":100,\"totalNumberOfEdges\":9,\"totalNumberOfVisitedVertices\":5,\"edgeCoverage\":100,\"totalNumberOfVertices\":5,\"totalNumberOfUnvisitedEdges\":0}\n\nThe Rest call getStatistics will fetch the current statistics of the session.\n"
 			},
 			"response": []
 		}

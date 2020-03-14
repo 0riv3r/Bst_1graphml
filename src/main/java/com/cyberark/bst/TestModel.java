@@ -1,15 +1,5 @@
 package com.cyberark.bst;
 
-import org.graphwalker.core.condition.EdgeCoverage;
-import org.graphwalker.core.condition.ReachedVertex;
-import org.graphwalker.core.condition.TimeDuration;
-import org.graphwalker.core.generator.AStarPath;
-import org.graphwalker.core.generator.RandomPath;
-import org.graphwalker.core.machine.ExecutionContext;
-import org.graphwalker.core.model.Edge;
-import org.graphwalker.java.test.TestBuilder;
-import org.graphwalker.java.test.TestExecutor;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
