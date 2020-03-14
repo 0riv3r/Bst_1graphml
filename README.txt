@@ -1,4 +1,6 @@
 
+*** check the project_structure.png file under the project's root folder
+
 *** java ***
 ------------
 
