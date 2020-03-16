@@ -77,11 +77,11 @@ Apache Maven 3.6.3
 
 clean all built/generated files
 -------------------------------
-$ bmvn clean
+$ mvn clean
 
 generate all the required files under target/
 ---------------------------------------------
-$ bmvn graphwalker:generate-sources
+$ mvn graphwalker:generate-sources
 
 run graphwalker online test via maven:
 -------------------------------------- 
@@ -95,6 +95,7 @@ $ mvn test
 run all together (after setting up the java version!):
 ------------------------------------------------------
 $ mvn clean graphwalker:generate-sources graphwalker:test
+# In the terminal you will see all the visited edges and vertices and the debug output for each.
 
 
 ==================================================================================
@@ -151,6 +152,10 @@ https://httpie.org/
 $ yum install httpie
 
 $ http GET  localhost:8887/graphwalker/hasNext
+
+$ http GET  localhost:8887/graphwalker/getNext
+
+$ http PUT  localhost:8887/graphwalker/restart
 
 
 
