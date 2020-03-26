@@ -129,11 +129,11 @@ https://www.yworks.com/products/yed
 ***            graphwalker             ***
 ******************************************
 
-download into lib/
+download into the project's lib/ directory
 from: https://graphwalker.github.io/
 graphwalker-cli-4.2.0.jar
 
-$ cd /root/Bst_1graphml/lib
+$ cd /..../Bst_1graphml/lib
 $ wget https://github.com/GraphWalker/graphwalker-project/releases/download/4.2.0/graphwalker-cli-4.2.0.jar
 
 
