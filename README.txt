@@ -126,6 +126,23 @@ https://www.yworks.com/products/yed
 
 
 ******************************************
+***                jq                  ***
+****************************************** 
+
+jq is a java json parser utility
+
+LINUX:
+------
+# To setup a java json parser utility from: https://stedolan.github.io/jq/
+$ cd /..../Bst_1graphml/lib
+$ wget https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
+$ chmod +x jq-linux64 
+
+Mac:
+----
+brew install jq
+
+******************************************
 ***            graphwalker             ***
 ******************************************
 
@@ -161,7 +178,11 @@ $ mvn graphwalker:test
 
 run unit-tests  under test/
 ---------------------------
+* Ignore this for now since we don't have unit-tests in this poc project
 $ mvn test
+
+run all in one line:
+$ mvn clean graphwalker:generate-sources graphwalker:test
 
 
 run all together (after setting up the java version!):
